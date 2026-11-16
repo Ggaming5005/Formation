@@ -4,6 +4,8 @@ Companion formations and motion for Roblox, with a Studio preview plugin and an 
 
 ![Formation arc preview with original companions](media/preview.jpg)
 
+[Watch the Studio demo](https://github.com/Ggaming5005/Formation/releases/download/v0.1.0/Formation-demo.mp4).
+
 Choose rows, an arc, or an orbit. Mix model sizes, preview ground and flying motion, then export the settings into your game. Formation renders cosmetic companions on the client; pet ownership, rewards, and gameplay stay in your own server code.
 
 ## Downloads
@@ -23,7 +25,7 @@ The exported `FormationConfig` ModuleScript contains `Settings` and `PetOptions`
 
 The plugin and runtime are separate downloads. Your published game only needs the runtime and your chosen assets.
 
-The standalone demo runs for the play session and includes a course plus layout controls. To embed it temporarily in your own client test, call `require(game.ReplicatedStorage.FormationExamples.Demo).start(game.Players.LocalPlayer)` and retain the returned handle. Call `handle:Destroy()` to remove its companions, course, controls and update connection. Deleting the demo's launcher script alone does not perform that cleanup.
+The standalone demo runs for the play session and includes a course plus layout controls. To embed it temporarily in your own client test, copy `Formation` and `FormationExamples` from the demo's ReplicatedStorage into your place's ReplicatedStorage. Call `require(game.ReplicatedStorage.FormationExamples.Demo).start(game.Players.LocalPlayer)` and retain the returned handle. Call `handle:Destroy()` to remove its companions, course, controls and update connection. Deleting the demo's launcher script alone does not perform that cleanup.
 
 ## Runtime
 
@@ -31,10 +33,11 @@ Insert `Formation.rbxm` into `ReplicatedStorage` and name it `Formation`. This e
 
 ```luau
 local Formation = require(game.ReplicatedStorage.Formation)
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
 
 local companions = Formation.new(character, {
 	Settings = { Formation = "Arc", Spacing = 0.8, Distance = 6 },
-	Exclude = { effectsFolder },
 })
 companions:Add("fox", template, { Scale = 0.8, Flying = false })
 companions:Start()
