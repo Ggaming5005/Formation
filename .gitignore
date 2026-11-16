@@ -1,0 +1,4 @@
+dist/
+media/*.mp4
+*.rbxl.lock
+*.rbxlx.lock

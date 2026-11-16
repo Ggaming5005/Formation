@@ -1,0 +1,56 @@
+{
+  "name": "FormationDemo",
+  "tree": {
+    "$className": "DataModel",
+    "Workspace": {
+      "$properties": {
+        "Gravity": 196.2
+      },
+      "Spawn": {
+        "$className": "SpawnLocation",
+        "$properties": {
+          "Anchored": true,
+          "Position": [
+            0,
+            5,
+            0
+          ],
+          "Size": [
+            6,
+            1,
+            6
+          ],
+          "Transparency": 1,
+          "CanCollide": false
+        }
+      }
+    },
+    "ReplicatedStorage": {
+      "Formation": {
+        "$path": "src"
+      },
+      "FormationExamples": {
+        "Demo": {
+          "$path": "examples/Demo.luau"
+        },
+        "Companions": {
+          "$path": "examples/Companions.luau"
+        },
+        "DemoScene": {
+          "$path": "examples/DemoScene.luau"
+        },
+        "Showcase": {
+          "$path": "examples/Showcase.luau"
+        },
+        "$className": "Folder"
+      }
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "Demo": {
+          "$path": "examples/Demo.client.luau"
+        }
+      }
+    }
+  }
+}
